@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>English Dictionary</title>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <main class="page-shell">
+        <header class="hero">
+            <div>
+                <p class="heading">English Dictionary</p>
+                <h1>Find meanings synonyms and examples</h1>
+                <p>Search a curated word library and browse definitions instantly</p>
+            </div>
+            <div class="search-panel">
+                <label for="searchInput">Search word</label>
+                <input id="searchInput" type="search" placeholder="Type a word"/>
+                <p class="hint"> nonchalant intelligent streaming</p>
+            </div>
+        </header>
+
+        <section class="dictionary-grid">
+            <aside class="sidebar">
+                <div class="panel">
+                    <h2>Popular words</h2>
+                    <ul id="wordList" class="word-list"></ul>
+                </div>
+            </aside>
+
+            <section class="results-panel">
+                <div class="panel">
+                    <div class="results-header">
+                        <h2>Definitions</h2>
+                        <p id="matchCount" class="match-count"></p>
+                    </div>
+                    <div id="results" class="results"></div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
