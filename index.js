@@ -30,5 +30,27 @@ function searchWord(event){
         return;
     }
 
-    console.log(word);
+    fetchWordData(word);
 }
+
+function fetchWordData(word){
+    fetch(APIURL + word)
+
+    .then(Response => {
+
+        if(!Response.ok) {
+            throw new Error("word not found");
+        }        
+        
+        return Response.json();
+    })
+
+    .then(data => {
+        displayWordData(data);
+    })
+
+    .catch(err => {
+        console.log("Error", err);
+    })
+}
+
