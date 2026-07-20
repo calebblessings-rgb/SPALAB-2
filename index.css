@@ -1,11 +1,10 @@
 :root {
-    --color-primary: #4b7cff;
-    --color-secondary: #4d4d4d;
-    --color-bg: #eef4ff;
+    --color-primary: #2c8a3a;
+    --color-secondary: #000000;
+    --color-bg: #eef4ee;
     --color-surface: #ffffff;
-    --color-border: #d0d7e6;
-    --color-muted: #6b7280;
-    --color-shadow: rgba(75, 124, 255, 0.15);
+    --color-border: #c7ddc7;
+    --color-muted: #4f5c4f;
     --radius: 12px;
     --text-color: #1a1a1a;
 }
@@ -35,7 +34,7 @@ header h1 {
 
 header p {
     margin: 8px 0 0;
-    color: #4d4d4d;
+    color: var(--color-secondary);
 }
 
 #searchForm {
@@ -75,7 +74,7 @@ header p {
 }
 
 #searchForm button:hover {
-    background: #3a63d9;
+    background: #256f2f;
 }
 
 .results {
@@ -104,13 +103,13 @@ header p {
     padding: 10px 16px;
     border: none;
     border-radius: 8px;
-    background: #4b7cff;
+    background: var(--color-primary);
     color: white;
     cursor: pointer;
 }
 
 #audiobtn:hover {
-    background: #3a63d9;
+    background: #256f2f;
 }
 
 .definition-group,
@@ -135,7 +134,7 @@ header p {
     padding: 1rem;
     border-radius: 16px;
     background: var(--color-bg);
-    border: 1px solid rgba(75, 124, 255, 0.1);
+    border: 1px solid rgba(44, 138, 58, 0.15);
 }
 
 .meta-row {
@@ -148,7 +147,7 @@ header p {
 .meta-item {
     padding: 0.75rem 0.95rem;
     border-radius: 16px;
-    background: rgba(31, 104, 255, 0.08);
+    background: rgba(44, 138, 58, 0.08);
     color: var(--color-muted);
 }
 
