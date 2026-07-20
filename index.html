@@ -14,24 +14,25 @@
         </header>
 
         <section>
-            <div id="searchForm">
+            <form id="searchForm">
                 <label for="searchInput">Search word</label>
                 <input id="searchInput"
                        type="text"
                        placeholder="Enter a word"
                        aria-label="Enter a word to search" />
                 <button type="submit">Search</button>
-           </div>
+            </form>
         </section>
 
         <section class="results">
-            <h2>Results</h2>
+            <h2 id="Results">Results</h2>
             <div>
                 <h3 id="word">Word example</h3>
                 <p id="phonetics">Phonetics: </p>
                 <p id="definitions">Definition: </p>
                 <p id="synonyms">Synonyms: </p>
                 <p id="example">Example: </p>
+                <p id="partspeech">partspeech: </p>
 
                 <button id="audiobtn">Play audio</button>
             </div>
