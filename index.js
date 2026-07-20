@@ -14,3 +14,21 @@ const audioBtn = document.getElementById("audiobtn");
 
 let audioURL = "";
 
+
+searchForm.addEventListener("submit", searchWord);
+
+function searchWord(event){
+
+    event.preventDefault();
+
+    const word = searchInput.value.trim();
+
+    if( word === "") {
+
+        showError("Please enter a word");
+
+        return;
+    }
+
+    console.log(word);
+}
