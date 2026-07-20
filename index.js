@@ -54,3 +54,56 @@ function fetchWordData(word){
     })
 }
 
+
+function displayWordData (data) {
+
+    const word = data[0].word;
+
+    const phonetics = data[0].phonetics;
+
+    const definitions =
+    data[0].meanings[0].definitions[0].definition;
+
+    const example =
+    data[0].meanings[0].definitions[0].example;
+
+    const partOfSpeech =
+    data[0].meanings[0].partOfSpeech;
+
+    const synonymList =
+    data[0].meanings[0].synonym;
+
+    wordElement.textContent =
+    "word: " + word;
+
+    phoneticsElement.textContent =
+    "phonetics: " +
+    (phonetic || "Not available");
+
+    definitionsElement.textContent =
+    "definitions: " + definitions;
+
+    exampleElement.textContent =
+    "Example: " +
+    (example || "Not available");
+
+     partOfSpeech.textContent =
+     "partOfSpeech: " + partOfSpeech;
+
+       if (synonymList.length > 0) {
+
+        synonymsElement.textContent =
+        "Synonyms: " +
+        synonymList.join(", ");
+
+    } 
+
+    else {
+
+        synonymsElement.textContent =
+        "Synonyms: Not available";
+
+    }
+
+}
+
