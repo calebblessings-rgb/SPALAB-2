@@ -107,3 +107,25 @@ function displayWordData (data) {
 
 }
 
+audioBtn.addEventListener("click", playAudio);
+
+function playAudio (){
+
+    if(audioURL){
+        const audio = new Audio(audioURL);
+
+        audio.play();
+    }
+
+    else {
+        alert("no audio available");
+    }
+}
+
+searchInput.addEventListener("input", checkInput);
+
+function checkInput() {
+
+    console.log("User is typing:", searchInput.value);
+
+}
