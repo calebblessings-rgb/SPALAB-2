@@ -3,12 +3,12 @@ const APIURL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 
-const word = document.getElementById("word");
-const phonetics = document.getElementById("phonetics");
-const definitions = document.getElementById("definitions");
-const synonyms = document.getElementById("synonyms");
-const example = document.getElementById("example");
-const partspeech = document.getElementById("partspeech");
+const wordElement = document.getElementById("word");
+const phoneticsElement = document.getElementById("phonetics");
+const definitionsElement = document.getElementById("definitions");
+const synonymsElement = document.getElementById("synonyms");
+const exampleElement = document.getElementById("example");
+const partspeechElement = document.getElementById("partspeech");
 
 const audioBtn = document.getElementById("audiobtn");
 
@@ -55,56 +55,31 @@ function fetchWordData(word){
 }
 
 
-function displayWordData (data) {
+function displayWordData(data) {
+    const wordText = data[0].word;
+    const phoneticText = data[0].phonetics?.[0]?.text || "Not available";
+    audioURL = data[0].phonetics?.find(item => item.audio)?.audio || "";
+    const definitionsText = data[0].meanings[0].definitions[0].definition || "Not available";
+    const exampleText = data[0].meanings[0].definitions[0].example || "Not available";
+    const partOfSpeechText = data[0].meanings[0].partOfSpeech || "Not available";
+    const synonymList = data[0].meanings[0].definitions[0].synonyms || [];
 
-    const word = data[0].word;
+    wordElement.textContent = "Word: " + wordText;
+    phoneticsElement.textContent = "Phonetics: " + phoneticText;
+    definitionsElement.textContent = "Definition: " + definitionsText;
+    exampleElement.textContent = "Example: " + exampleText;
+    partspeechElement.textContent = "Part of speech: " + partOfSpeechText;
 
-    const phonetics = data[0].phonetics;
-
-    const definitions =
-    data[0].meanings[0].definitions[0].definition;
-
-    const example =
-    data[0].meanings[0].definitions[0].example;
-
-    const partOfSpeech =
-    data[0].meanings[0].partOfSpeech;
-
-    const synonymList =
-    data[0].meanings[0].synonym;
-
-    wordElement.textContent =
-    "word: " + word;
-
-    phoneticsElement.textContent =
-    "phonetics: " +
-    (phonetic || "Not available");
-
-    definitionsElement.textContent =
-    "definitions: " + definitions;
-
-    exampleElement.textContent =
-    "Example: " +
-    (example || "Not available");
-
-     partOfSpeech.textContent =
-     "partOfSpeech: " + partOfSpeech;
-
-       if (synonymList.length > 0) {
-
-        synonymsElement.textContent =
-        "Synonyms: " +
-        synonymList.join(", ");
-
-    } 
-
-    else {
-
-        synonymsElement.textContent =
-        "Synonyms: Not available";
-
+    if (synonymList.length > 0) {
+        synonymsElement.textContent = "Synonyms: " + synonymList.join(", ");
+    } else {
+        synonymsElement.textContent = "Synonyms: Not available";
     }
 
+    const resultsSection = document.querySelector('.results');
+    if (resultsSection) {
+        resultsSection.style.display = 'block';
+    }
 }
 
 audioBtn.addEventListener("click", playAudio);
