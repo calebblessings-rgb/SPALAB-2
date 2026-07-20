@@ -1,1 +1,16 @@
-const APIURL = 'https://api.dictionaryapi.dev/api/v2/entries/en/<word>';
+const APIURL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
+
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
+
+const word = document.getElementById("word");
+const phonetics = document.getElementById("phonetics");
+const definitions = document.getElementById("definitions");
+const synonyms = document.getElementById("synonyms");
+const example = document.getElementById("example");
+const partspeech = document.getElementById("partspeech");
+
+const audioBtn = document.getElementById("audiobtn");
+
+let audioURL = "";
+
