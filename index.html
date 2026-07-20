@@ -3,45 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>English Dictionary</title>
+    <title>Simple Dictionary</title>
     <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <main class="page-shell">
-        <header class="hero">
-            <div>
-                <p class="heading">English Dictionary</p>
-                <h1>Find meanings synonyms and examples</h1>
-                <p>Search a curated word library and browse definitions instantly</p>
-            </div>
-            <div class="search-panel">
-                <label for="searchInput">Search word</label>
-                <input id="searchInput" type="search" placeholder="Type a word"/>                
-                <p class="hint"> <button>nonchalant</button> <button>Literate</button> <button>age</button></p>
-            </div>
+    <main>
+        <header>
+            <h1>English Dictionary</h1>
+            <p>Learn best definitions synonyms and pronunciation</p>
         </header>
 
-        <section class="dictionary-grid">
-            <aside class="sidebar">
-                <div class="panel">
-                    <h2>Popular words</h2>
-                    <ul id="wordList" class="word-list">
-                        <li>Hip-hop</li>
-                        <li>Graphics</li>
-                        <li>Horsepower</li>
-                    </ul>
-                </div>
-            </aside>
+        <section>
+            <div id="searchForm">
+                <label for="searchInput">Search word</label>
+                <input id="searchInput"
+                       type="text"
+                       placeholder="Enter a word"
+                       aria-label="Enter a word to search" />
+                <button type="submit">Search</button>
+           </div>
+        </section>
 
-            <section class="results-panel">
-                <div class="panel">
-                    <div class="results-header">
-                        <h2>Definitions</h2>
-                        <p id="matchCount" class="match-count"></p>
-                    </div>
-                    <div id="results" class="results"></div>
-                </div>
-            </section>
+        <section class="results">
+            <h2>Results</h2>
+            <div>
+                <h3 id="word">Word example</h3>
+                <p id="phonetics">Phonetics: </p>
+                <p id="definitions">Definition: </p>
+                <p id="synonyms">Synonyms: </p>
+                <p id="example">Example: </p>
+
+                <button id="audiobtn">Play audio</button>
+            </div>
         </section>
     </main>
 
