@@ -56,18 +56,37 @@ function fetchWordData(word){
 
 
 function displayWordData(data) {
-    const wordText = data[0].word;
-    const phoneticText = data[0].phonetics?.[0]?.text || "Not available";
-    audioURL = data[0].phonetics?.find(item => item.audio)?.audio || "";
-    const definitionsText = data[0].meanings[0].definitions[0].definition || "Not available";
-    const exampleText = data[0].meanings[0].definitions[0].example || "Not available";
-    const partOfSpeechText = data[0].meanings[0].partOfSpeech || "Not available";
-    const synonymList = data[0].meanings[0].definitions[0].synonyms || [];
+    const wordText = 
+    data[0].word;
 
-    wordElement.textContent = "Word: " + wordText;
-    phoneticsElement.textContent = "Phonetics: " + phoneticText;
-    definitionsElement.textContent = "Definition: " + definitionsText;
-    exampleElement.textContent = "Example: " + exampleText;
+    const phoneticText = 
+    data[0].phonetics?.[0]?.text || "Not available";
+    audioURL = data[0].phonetics?.find(item => item.audio)?.audio || "";
+
+    const definitionsText =
+     data[0].meanings[0].definitions[0].definition || "Not available";
+
+
+    const exampleText =
+     data[0].meanings[0].definitions[0].example || "Not available";
+
+    const partOfSpeechText =
+     data[0].meanings[0].partOfSpeech || "Not available";
+
+    const synonymList = 
+    data[0].meanings[0].definitions[0].synonyms || [];
+
+    wordElement.textContent = 
+    "Word: " + wordText;
+
+    phoneticsElement.textContent =
+     "Phonetics: " + phoneticText;
+
+    definitionsElement.textContent =
+     "Definition: " + definitionsText;
+
+    exampleElement.textContent =
+     "Example: " + exampleText;
     partspeechElement.textContent = "Part of speech: " + partOfSpeechText;
 
     if (synonymList.length > 0) {
@@ -101,6 +120,6 @@ searchInput.addEventListener("input", checkInput);
 
 function checkInput() {
 
-    console.log("User is typing:", searchInput.value);
+    console.log("typing:", searchInput.value);
 
 }
