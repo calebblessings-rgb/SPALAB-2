@@ -33,27 +33,26 @@ function searchWord(event){
     fetchWordData(word);
 }
 
-function fetchWordData(word){
-    fetch(APIURL + word)
 
-    .then(Response => {
+async function fetchWordData(word) {
+    try {
 
-        if(!Response.ok) {
-            throw new Error("word not found");
-        }        
-        
-        return Response.json();
-    })
+        const response = await fetch(APIURL + word);
 
-    .then(data => {
+        if (!response.ok) {
+            throw new Error("Word not found.");
+        }
+
+        const data = await response.json();
+
         displayWordData(data);
-    })
+    }
 
-    .catch(err => {
-        console.log("Error", err);
-    })
+    catch (error) {
+        showError(error.message);
+        console.error(error);
+    }
 }
-
 
 function displayWordData(data) {
     const wordText = 
@@ -61,20 +60,20 @@ function displayWordData(data) {
 
     const phoneticText = 
     data[0].phonetics?.[0]?.text || "Not available";
-    audioURL = data[0].phonetics?.find(item => item.audio)?.audio || "";
+    audioURL = data[0]?.phonetics?.find(item => item.audio)?.audio || "";
 
     const definitionsText =
-     data[0].meanings[0].definitions[0].definition || "Not available";
+    data[0].meanings?.[0]?.definitions?.[0]?.definition || "Not available";
 
 
     const exampleText =
-     data[0].meanings[0].definitions[0].example || "Not available";
+    data[0].meanings?.[0]?.definitions?.[0]?.example || "Not available";
 
     const partOfSpeechText =
-     data[0].meanings[0].partOfSpeech || "Not available";
+    data[0].meanings?.[0]?.partOfSpeech || "Not available";
 
     const synonymList = 
-    data[0].meanings[0].definitions[0].synonyms || [];
+    data[0].meanings?.[0]?.definitions?.[0]?.synonyms || [];
 
     wordElement.textContent = 
     "Word: " + wordText;
@@ -99,6 +98,23 @@ function displayWordData(data) {
     if (resultsSection) {
         resultsSection.style.display = 'block';
     }
+}
+
+function showError(message) {
+
+    wordElement.textContent = message;
+    phoneticsElement.textContent = "";
+    definitionsElement.textContent = "";
+    synonymsElement.textContent = "";
+    exampleElement.textContent = "";
+    partspeechElement.textContent = "";
+
+    audioURL = "";
+
+    audioBtn.disabled = true;
+
+    resultsSection.style.display = "block";
+
 }
 
 audioBtn.addEventListener("click", playAudio);
