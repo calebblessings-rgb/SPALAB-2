@@ -14,6 +14,8 @@ const audioBtn = document.getElementById("audiobtn");
 
 let audioURL = "";
 
+const resultsSection = document.querySelector(".results");
+
 
 searchForm.addEventListener("submit", searchWord);
 
@@ -94,10 +96,8 @@ function displayWordData(data) {
         synonymsElement.textContent = "Synonyms: Not available";
     }
 
-    const resultsSection = document.querySelector('.results');
-    if (resultsSection) {
-        resultsSection.style.display = 'block';
-    }
+    resultsSection.style.display = 'block';
+  
 }
 
 function showError(message) {
